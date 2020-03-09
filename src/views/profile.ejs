@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<title>Perfil de Imagen</title>
+	
+    <!-- <%- include("partials/head") %> -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet"  href="../core/css/bootstrap.min.css">
+</head>
+<body>
+ 
+ <%- include("partials/navigation")%>
+
+<div class="container mt-2">
+ 	<div class="row">
+ 		<div class="col-md-4 offset-md-4">
+ 			<div class="card">
+			<img src="<%= image.path %>" class="card-img-top">
+			<div class="card-body">
+				<h5 class="card-title"><%= image.title %></h5>
+				<p class="card-text"><%= image.description %></p>
+				<p class="card-text"><%= format(image.created_at) %></p>
+				<a href="/image/<%= image._id %>/delete" class="btn btn-danger btn-block" >
+					Eliminar Imagen
+				</a>
+			</div>
+			</div>
+ 		</div>
+ 	</div>
+ </div>
+
+<%- include("partials/footercontec") %>
+
+</body>
+</html>

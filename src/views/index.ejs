@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<title>Galleria Pinteres</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <%- include("partials/head") %>
+		
+</head>
+<body>
+	
+	<%- include("partials/navigation")%>
+	
+ <div class="container">
+ 	<div class="row">
+ 		<div class="card-columns">
+ 			<% images.forEach(function(image) { %>
+ 				<div class="card">
+ 					<a href="#" data-toggle="modal" data-target="#id<%= image._id %>">
+ 						<div class="inner">
+ 							<img src="<%= image.path %>" class="card-img-top">
+ 						</div>
+ 					</a>
+ 						
+ 					<div class="card-body">
+ 						<h5 class="card-title"><%= image.title %></h5>
+ 						<p class="card-text"><%= image.description %></p>
+ 						<p class="card-text"><%= format(image.created_at) %></p>
+ 						<a href="/image/<%= image._id %>" class="btn btn-primary" >
+ 							Ver Perfil
+ 						</a>
+ 					</div>
+ 				</div>
+
+ 				<div class="modal fade" id="id<%= image._id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+ 					<button type="button" class="close mr-2" data-dismiss="modal" aria-label="Close">
+ 							<span aria-hidden="true">&times;</span>
+ 					</button>
+
+ 					<div class="modal-dialog modal-dialog-centered" role="document">
+ 						<img src="<%= image.path %>" class="img-fluid rounded">
+ 					</div>
+ 					
+ 				</div>
+ 				
+ 			<% }) %>
+
+
+ 		</div>
+ 	</div>
+ </div>
+  <%- include("partials/footercontec") %>
+
+	<script src="core/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="core/js/bootstrap.min.js" ></script>
+    <script src="core/js/popper.min.js" ></script>
+
+
+
+</body>
+</html>
